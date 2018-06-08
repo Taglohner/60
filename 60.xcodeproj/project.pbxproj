@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E798EAE620CAD0D700157A7B /* StartResumeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E798EAE520CAD0D700157A7B /* StartResumeButton.swift */; };
 		E7ACABFE20C7376900E7D9AB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ACABFD20C7376900E7D9AB /* Extensions.swift */; };
-		E7DBA41A20C99133006E9C5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7DBA41920C99133006E9C5B /* Main.storyboard */; };
 		E7DBA41C20C99141006E9C5B /* StopwatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DBA41B20C99141006E9C5B /* StopwatchViewController.swift */; };
 		E7DBA41E20C99167006E9C5B /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DBA41D20C99167006E9C5B /* KDCircularProgress.swift */; };
 		E7E0A04B20C72FFD00FEA825 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E0A04A20C72FFD00FEA825 /* AppDelegate.swift */; };
@@ -17,8 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E798EAE520CAD0D700157A7B /* StartResumeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartResumeButton.swift; sourceTree = "<group>"; };
 		E7ACABFD20C7376900E7D9AB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		E7DBA41920C99133006E9C5B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E7DBA41B20C99141006E9C5B /* StopwatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopwatchViewController.swift; sourceTree = "<group>"; };
 		E7DBA41D20C99167006E9C5B /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		E7E0A04720C72FFD00FEA825 /* 60.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 60.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,7 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				E7E0A05D20C731A300FEA825 /* Controllers */,
-				E7E0A05E20C731B300FEA825 /* Storyboards */,
 				E7E0A05C20C7319000FEA825 /* Supporting Files */,
 			);
 			path = 60;
@@ -82,16 +81,9 @@
 			isa = PBXGroup;
 			children = (
 				E7DBA41B20C99141006E9C5B /* StopwatchViewController.swift */,
+				E798EAE520CAD0D700157A7B /* StartResumeButton.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		E7E0A05E20C731B300FEA825 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				E7DBA41920C99133006E9C5B /* Main.storyboard */,
-			);
-			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,7 +144,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7DBA41A20C99133006E9C5B /* Main.storyboard in Resources */,
 				E7E0A05520C72FFF00FEA825 /* LaunchScreen.storyboard in Resources */,
 				E7E0A05220C72FFF00FEA825 /* Assets.xcassets in Resources */,
 			);
@@ -165,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E798EAE620CAD0D700157A7B /* StartResumeButton.swift in Sources */,
 				E7DBA41E20C99167006E9C5B /* KDCircularProgress.swift in Sources */,
 				E7DBA41C20C99141006E9C5B /* StopwatchViewController.swift in Sources */,
 				E7ACABFE20C7376900E7D9AB /* Extensions.swift in Sources */,
@@ -314,7 +306,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = steven.taglohner.60;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -332,7 +324,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = steven.taglohner.60;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
