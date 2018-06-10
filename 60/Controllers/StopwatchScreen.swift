@@ -8,7 +8,18 @@
 
 import UIKit
 
-class StopwatchViewController: UIViewController {
+class StopwatchScreen: UIViewController {
+    
+    // MARK: Lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        circularProgressView.angle = 0
+        setupViews()
+        setupNavigationBar()
+    }
+    
     // MARK: Properties
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -95,13 +106,25 @@ class StopwatchViewController: UIViewController {
         startPauseButton.addTarget(self, action: .startTimer, for: .touchUpInside)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    func setupNavigationBar() {
+        if let navigationBar = navigationController?.navigationBar {
+            navigationBar.barStyle = .default
+            navigationBar.isTranslucent = true
+            navigationBar.tintColor = .lightText
+            navigationBar.setBackgroundImage(UIImage(), for: .default)
+        }
         
-        circularProgressView.angle = 0
-        setupViews()
+        let settingsButton = UIBarButtonItem(image: UIImage(named: "settings_icon"), style: .plain, target: self, action: .navigateToSettings)
+        self.navigationItem.rightBarButtonItem = settingsButton
     }
     
+    @ objc func navigateToSettings() {
+        let settingScreen = SettingsScreen()
+        self.navigationController?.pushViewController(settingScreen, animated: true)
+        
+    }
+
     // MARK: Methods
     
     func runTimer() {
@@ -147,7 +170,7 @@ class StopwatchViewController: UIViewController {
 
 }
 
-@objc extension StopwatchViewController {
+@objc extension StopwatchScreen {
     func updateTimer() {
         interval += 1
         secondsLabel.text = "\(seconds)"
@@ -156,6 +179,7 @@ class StopwatchViewController: UIViewController {
 }
 
 fileprivate extension Selector {
-    static let updateTimer = #selector(StopwatchViewController.updateTimer)
-    static let startTimer = #selector(StopwatchViewController.startTimer)
+    static let updateTimer = #selector(StopwatchScreen.updateTimer)
+    static let startTimer = #selector(StopwatchScreen.startTimer)
+    static let navigateToSettings = #selector(StopwatchScreen.navigateToSettings)
 }

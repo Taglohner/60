@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E7265A8220CC0FC300A008CF /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7265A8120CC0FC300A008CF /* SettingsScreen.swift */; };
+		E7265A8620CC115200A008CF /* SettingsScreen + DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7265A8520CC115200A008CF /* SettingsScreen + DataSource.swift */; };
+		E7265A8820CC116900A008CF /* SettingsScreen + Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7265A8720CC116900A008CF /* SettingsScreen + Delegate.swift */; };
+		E7265A8A20CC11BF00A008CF /* SettingsScreen + TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7265A8920CC11BF00A008CF /* SettingsScreen + TableViewCell.swift */; };
 		E798EAE620CAD0D700157A7B /* StartResumeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E798EAE520CAD0D700157A7B /* StartResumeButton.swift */; };
 		E7ACABFE20C7376900E7D9AB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ACABFD20C7376900E7D9AB /* Extensions.swift */; };
-		E7DBA41C20C99141006E9C5B /* StopwatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DBA41B20C99141006E9C5B /* StopwatchViewController.swift */; };
+		E7DBA41C20C99141006E9C5B /* StopwatchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DBA41B20C99141006E9C5B /* StopwatchScreen.swift */; };
 		E7DBA41E20C99167006E9C5B /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DBA41D20C99167006E9C5B /* KDCircularProgress.swift */; };
 		E7E0A04B20C72FFD00FEA825 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E0A04A20C72FFD00FEA825 /* AppDelegate.swift */; };
 		E7E0A05220C72FFF00FEA825 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7E0A05120C72FFF00FEA825 /* Assets.xcassets */; };
@@ -17,9 +21,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E7265A8120CC0FC300A008CF /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		E7265A8520CC115200A008CF /* SettingsScreen + DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsScreen + DataSource.swift"; sourceTree = "<group>"; };
+		E7265A8720CC116900A008CF /* SettingsScreen + Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsScreen + Delegate.swift"; sourceTree = "<group>"; };
+		E7265A8920CC11BF00A008CF /* SettingsScreen + TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsScreen + TableViewCell.swift"; sourceTree = "<group>"; };
 		E798EAE520CAD0D700157A7B /* StartResumeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartResumeButton.swift; sourceTree = "<group>"; };
 		E7ACABFD20C7376900E7D9AB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		E7DBA41B20C99141006E9C5B /* StopwatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopwatchViewController.swift; sourceTree = "<group>"; };
+		E7DBA41B20C99141006E9C5B /* StopwatchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopwatchScreen.swift; sourceTree = "<group>"; };
 		E7DBA41D20C99167006E9C5B /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		E7E0A04720C72FFD00FEA825 /* 60.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 60.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E0A04A20C72FFD00FEA825 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +47,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E7265A8320CC100E00A008CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E798EAE520CAD0D700157A7B /* StartResumeButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E7265A8420CC112500A008CF /* SettingsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E7265A8120CC0FC300A008CF /* SettingsScreen.swift */,
+				E7265A8520CC115200A008CF /* SettingsScreen + DataSource.swift */,
+				E7265A8720CC116900A008CF /* SettingsScreen + Delegate.swift */,
+				E7265A8920CC11BF00A008CF /* SettingsScreen + TableViewCell.swift */,
+			);
+			path = SettingsScreen;
+			sourceTree = "<group>";
+		};
 		E7E0A03E20C72FFD00FEA825 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +85,7 @@
 		E7E0A04920C72FFD00FEA825 /* 60 */ = {
 			isa = PBXGroup;
 			children = (
+				E7265A8320CC100E00A008CF /* View */,
 				E7E0A05D20C731A300FEA825 /* Controllers */,
 				E7E0A05C20C7319000FEA825 /* Supporting Files */,
 			);
@@ -80,8 +108,8 @@
 		E7E0A05D20C731A300FEA825 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E7DBA41B20C99141006E9C5B /* StopwatchViewController.swift */,
-				E798EAE520CAD0D700157A7B /* StartResumeButton.swift */,
+				E7DBA41B20C99141006E9C5B /* StopwatchScreen.swift */,
+				E7265A8420CC112500A008CF /* SettingsScreen */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -157,9 +185,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E798EAE620CAD0D700157A7B /* StartResumeButton.swift in Sources */,
+				E7265A8820CC116900A008CF /* SettingsScreen + Delegate.swift in Sources */,
 				E7DBA41E20C99167006E9C5B /* KDCircularProgress.swift in Sources */,
-				E7DBA41C20C99141006E9C5B /* StopwatchViewController.swift in Sources */,
+				E7265A8620CC115200A008CF /* SettingsScreen + DataSource.swift in Sources */,
+				E7DBA41C20C99141006E9C5B /* StopwatchScreen.swift in Sources */,
+				E7265A8A20CC11BF00A008CF /* SettingsScreen + TableViewCell.swift in Sources */,
 				E7ACABFE20C7376900E7D9AB /* Extensions.swift in Sources */,
+				E7265A8220CC0FC300A008CF /* SettingsScreen.swift in Sources */,
 				E7E0A04B20C72FFD00FEA825 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
