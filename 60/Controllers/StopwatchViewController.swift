@@ -8,34 +8,8 @@
 
 import UIKit
 
-protocol Stopwatch {
-    var interval: Int { get set }
-    var milliseconds: Int { get }
-    var seconds: Int { get }
-    var minutes: Int { get }
-    var hours: Int { get }
-}
-
-extension Stopwatch {
-    var milliseconds: Int {
-        return interval % 100
-    }
-    
-    var seconds: Int {
-        return (interval / 10) % 60
-    }
-    
-    var minutes: Int {
-        return (interval / 6000) % 60
-    }
-    
-    var hours: Int {
-        return interval / 3600000
-    }
-}
-
 class StopwatchViewController: UIViewController, Stopwatch {
-    
+
     // MARK: Properties
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -44,138 +18,87 @@ class StopwatchViewController: UIViewController, Stopwatch {
     
     var stopWatchView = StopwatchView()
     var timer: Timer = Timer()
-    var interval = 0
-    var timeAngle: Double {
-        return 360
-    }
+    var interval: Double = 0
+    var progressViewCurrentAngle: Double = 0
     
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        
-        
     }
     
     func setupView() {
         stopWatchView = StopwatchView(frame: UIScreen.main.bounds)
         view.addSubview(stopWatchView)
-        
         stopWatchView.startPauseButton.addTarget(self, action: .startStopButtonPressed, for: .touchUpInside)
     }
     
+    // Actions
+    
     @objc func startStopButtonPressed() {
         if stopWatchView.startPauseButton.isActive {
-            timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: .updateView, userInfo: nil, repeats: true)
-            startCircleProgressViewAnimation()
+            startStopwatch()
         } else {
-            timer.invalidate()
-            stopWatchView.circularProgressView.pauseAnimation()
+            stopWatchView.progressView.pauseAnimation()
+            pauseStopwatch()
         }
     }
+
+    // Helper methods
     
-    func startCircleProgressViewAnimation() {
-        stopWatchView.circularProgressView.animate(toAngle: 360, duration: Double(60 - seconds), completion: { (true) in
+    private func startTimer() {
+        self.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: .updateView, userInfo: nil, repeats: true)
+    }
+    
+    private func startStopwatch() {
+        startTimer()
+        startProgressViewAnimation()
+    }
+    
+    func pauseStopwatch() {
+        self.timer.invalidate()
+    }
+    
+    private func resetStopwatch() {
+        timer.invalidate()
+        interval = 0
+    }
+    
+    func startProgressViewAnimation() {
+        
+        stopWatchView.progressView.animate(fromAngle: currentAngle, toAngle: 360, duration: animationDuration) { (true) in
             if self.timer.isValid {
-                self.stopWatchView.circularProgressView.stopAnimation()
-                self.startCircleProgressViewAnimation()
+                self.stopWatchView.progressView.stopAnimation()
+                self.startProgressViewAnimation()
             }
-        })
+        }
+        
+//        stopWatchView.progressView.animate(toAngle: 360, duration: animationDuration) { (true) in
+//            if self.timer.isValid {
+//                self.stopWatchView.progressView.stopAnimation()
+//                self.startProgressViewAnimation()
+//            }
+//        }
+    }
+    
+    func restoreApplicationState() {
+        stopWatchView.progressView.animate(fromAngle: currentAngle, toAngle: 360, duration: animationDuration) { (true) in
+            if self.timer.isValid {
+                self.stopWatchView.progressView.stopAnimation()
+                self.startProgressViewAnimation()
+            }
+        }
     }
     
     @objc func updateView() {
         interval += 1
-        stopWatchView.secondsLabel.text = "\(seconds)"
-        stopWatchView.minutesLabel.text = "\(minutes)"
-        
+        stopWatchView.secondsLabel.text = "\(Int(seconds))"
+        stopWatchView.minutesLabel.text = "\(Int(minutes))"
     }
-    
-    
 }
 
 fileprivate extension Selector {
     static let updateView = #selector(StopwatchViewController.updateView)
     static let startStopButtonPressed = #selector(StopwatchViewController.startStopButtonPressed)
 }
-
-
-
-//    func setupNavigationBar() {
-//        if let navigationBar = navigationController?.navigationBar {
-//            navigationBar.barStyle = .default
-//            navigationBar.isTranslucent = true
-//            navigationBar.tintColor = .lightText
-//            navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        }
-//
-//        let settingsButton = UIBarButtonItem(image: UIImage(named: "settings_icon"), style: .plain, target: self, action: .navigateToSettings)
-//        self.navigationItem.rightBarButtonItem = settingsButton
-//    }
-//
-//    @objc func navigateToSettings() {
-//        let settingScreen = SettingsScreen()
-//        self.navigationController?.pushViewController(settingScreen, animated: true)
-//    }
-//
-//    // MARK: Methods
-//
-//    func runTimer() {
-//        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: .updateTimer, userInfo: nil, repeats: true)
-//    }
-
-
-//
-//    @objc func startTimer() {
-//        if startPauseButton.isActive {
-//            runTimer()
-//
-//            startSecondsCircularProgressView()
-//        } else {
-//            pauseTimer()
-//        }
-//    }
-//
-//    func pauseTimer() {
-//        timer.invalidate()
-//        circularProgressView.pauseAnimation()
-//    }
-//
-//    func resumeTimer() {
-//        runTimer()
-//        startSecondsCircularProgressView()
-//    }
-//
-//    func restartTimer() {
-//        timer.invalidate()
-//        interval = 0
-//        circularProgressView.stopAnimation()
-//    }
-//
-//
-//    func startSecondsCircularProgressView() {
-//
-//        circularProgressView.animate(toAngle: 360, duration: Double(60 - seconds), completion: { (true) in
-//            if self.timer.isValid {
-//                self.circularProgressView.stopAnimation()
-//                self.startSecondsCircularProgressView()
-//            }
-//        })
-//    }
-//
-//}
-//
-//@objc extension StopwatchViewController {
-//    func updateTimer() {
-//        interval += 1
-//        secondsLabel.text = "\(seconds)"
-//        minutesLabel.text = "\(minutes)"
-//        currentAngle = circularProgressView.angle
-//    }
-//}
-//
-//fileprivate extension Selector {
-//    static let updateTimer = #selector(StopwatchViewController.updateTimer)
-//    static let startTimer = #selector(StopwatchViewController.startTimer)
-//    static let navigateToSettings = #selector(StopwatchViewController.navigateToSettings)
-//}

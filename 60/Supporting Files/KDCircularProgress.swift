@@ -296,6 +296,11 @@ public class KDCircularProgress: UIView, CAAnimationDelegate {
         angle = currentValue
     }
     
+    public func getCurrentAngle() -> Double {
+        guard let presentationLayer = progressLayer.presentation() else { return 0 }
+        return presentationLayer.angle
+    }
+    
     public func stopAnimation() {
         progressLayer.removeAllAnimations()
         angle = 0
