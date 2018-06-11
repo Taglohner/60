@@ -13,7 +13,8 @@
 		E7265A8A20CC11BF00A008CF /* SettingsScreen + TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7265A8920CC11BF00A008CF /* SettingsScreen + TableViewCell.swift */; };
 		E798EAE620CAD0D700157A7B /* StartResumeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E798EAE520CAD0D700157A7B /* StartResumeButton.swift */; };
 		E7ACABFE20C7376900E7D9AB /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ACABFD20C7376900E7D9AB /* Extensions.swift */; };
-		E7DBA41C20C99141006E9C5B /* StopwatchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DBA41B20C99141006E9C5B /* StopwatchScreen.swift */; };
+		E7C76FA820CD783A00EF02C3 /* StopwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C76FA720CD783A00EF02C3 /* StopwatchView.swift */; };
+		E7DBA41C20C99141006E9C5B /* StopwatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DBA41B20C99141006E9C5B /* StopwatchViewController.swift */; };
 		E7DBA41E20C99167006E9C5B /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DBA41D20C99167006E9C5B /* KDCircularProgress.swift */; };
 		E7E0A04B20C72FFD00FEA825 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E0A04A20C72FFD00FEA825 /* AppDelegate.swift */; };
 		E7E0A05220C72FFF00FEA825 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7E0A05120C72FFF00FEA825 /* Assets.xcassets */; };
@@ -27,7 +28,8 @@
 		E7265A8920CC11BF00A008CF /* SettingsScreen + TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsScreen + TableViewCell.swift"; sourceTree = "<group>"; };
 		E798EAE520CAD0D700157A7B /* StartResumeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartResumeButton.swift; sourceTree = "<group>"; };
 		E7ACABFD20C7376900E7D9AB /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		E7DBA41B20C99141006E9C5B /* StopwatchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopwatchScreen.swift; sourceTree = "<group>"; };
+		E7C76FA720CD783A00EF02C3 /* StopwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopwatchView.swift; sourceTree = "<group>"; };
+		E7DBA41B20C99141006E9C5B /* StopwatchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StopwatchViewController.swift; sourceTree = "<group>"; };
 		E7DBA41D20C99167006E9C5B /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KDCircularProgress.swift; sourceTree = "<group>"; };
 		E7E0A04720C72FFD00FEA825 /* 60.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 60.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7E0A04A20C72FFD00FEA825 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				E798EAE520CAD0D700157A7B /* StartResumeButton.swift */,
+				E7C76FA720CD783A00EF02C3 /* StopwatchView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -108,7 +111,7 @@
 		E7E0A05D20C731A300FEA825 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E7DBA41B20C99141006E9C5B /* StopwatchScreen.swift */,
+				E7DBA41B20C99141006E9C5B /* StopwatchViewController.swift */,
 				E7265A8420CC112500A008CF /* SettingsScreen */,
 			);
 			path = Controllers;
@@ -188,10 +191,11 @@
 				E7265A8820CC116900A008CF /* SettingsScreen + Delegate.swift in Sources */,
 				E7DBA41E20C99167006E9C5B /* KDCircularProgress.swift in Sources */,
 				E7265A8620CC115200A008CF /* SettingsScreen + DataSource.swift in Sources */,
-				E7DBA41C20C99141006E9C5B /* StopwatchScreen.swift in Sources */,
+				E7DBA41C20C99141006E9C5B /* StopwatchViewController.swift in Sources */,
 				E7265A8A20CC11BF00A008CF /* SettingsScreen + TableViewCell.swift in Sources */,
 				E7ACABFE20C7376900E7D9AB /* Extensions.swift in Sources */,
 				E7265A8220CC0FC300A008CF /* SettingsScreen.swift in Sources */,
+				E7C76FA820CD783A00EF02C3 /* StopwatchView.swift in Sources */,
 				E7E0A04B20C72FFD00FEA825 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

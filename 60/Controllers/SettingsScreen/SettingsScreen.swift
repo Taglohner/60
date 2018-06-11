@@ -10,6 +10,10 @@ import UIKit
 
 class SettingsScreen: UIViewController {
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // MARK: Properties
     var tableView = UITableView()
     var settingsCell = "settingsCell"
