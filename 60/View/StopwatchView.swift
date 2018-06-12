@@ -25,7 +25,7 @@ class StopwatchView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.text = "0"
-        label.font = .boldSystemFont(ofSize: 84)
+        label.font = .boldSystemFont(ofSize: 120)
         label.textAlignment = .center
         return label
     }()
@@ -34,7 +34,7 @@ class StopwatchView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
-        label.font = .boldSystemFont(ofSize: 60)
+        label.font = .boldSystemFont(ofSize: 80)
         label.text = "0"
         label.textAlignment = .center
         return label
@@ -42,37 +42,38 @@ class StopwatchView: UIView {
     
     let progressView = KDCircularProgress()
     let startPauseButton = StartResumeButton()
+    let resetButton = StartResumeButton()
+
     
     fileprivate func setupViews() {
-        
-        
         progressView.startAngle = 0
-        progressView.progressThickness = 0.2
-        progressView.trackThickness = 0.6
+        progressView.progressThickness = 0.4
+        progressView.trackThickness = 0.5
         progressView.clockwise = true
-        progressView.gradientRotateSpeed = 2
+        progressView.gradientRotateSpeed = 4
         progressView.roundedCorners = false
         progressView.glowMode = .forward
         progressView.glowAmount = 0.9
         progressView.set(colors: .green)
-        progressView.backgroundColor = .gray
+        progressView.trackColor = .darkGray
         
-        let stackView = UIStackView(arrangedSubviews: [secondsLabel, minutesLabel])
-        stackView.distribution = .fillEqually
-        stackView.axis = .horizontal
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.alignment = .fill
+        let buttonsStackView = UIStackView(arrangedSubviews: [resetButton, startPauseButton])
+        buttonsStackView.distribution = .equalSpacing
+        buttonsStackView.axis = .horizontal
+        buttonsStackView.alignment = .fill
         
-        [progressView, stackView, startPauseButton].forEach {addSubview($0)}
+        [progressView, buttonsStackView].forEach { addSubview($0) }
+        [secondsLabel, minutesLabel].forEach { progressView.addSubview($0)}
+      
+        progressView.anchor(top: nil, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, size: .init(width: 0, height: screenWidht))
+        progressView.center(to: self)
         
-        progressView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        progressView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        progressView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 20, bottom: 0, right: 20), size: .init(width: 0, height: progressView.frame.width))
-
-        stackView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        stackView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        secondsLabel.anchor(top: progressView.topAnchor, leading: progressView.leadingAnchor, bottom: progressView.bottomAnchor, trailing: progressView.trailingAnchor)
+        minutesLabel.anchor(top: topAnchor, leading: nil, bottom: nil, trailing: trailingAnchor, padding: .init(top: 150, left: 0, bottom: 0, right: 0), size: .init(width: 100, height: 80))
         
-        startPauseButton.anchor(top: stackView.bottomAnchor, leading: nil, bottom: nil, trailing: nil, padding: .init(top: 40, left: 0, bottom: 0, right: 0), size: .init(width: 80, height: 80))
-        startPauseButton.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        startPauseButton.size(.init(width: 80, height: 80))
+        resetButton.size(.init(width: 80, height: 80))
+        
+        buttonsStackView.anchor(top: progressView.bottomAnchor, leading: progressView.leadingAnchor, bottom: nil, trailing: progressView.trailingAnchor, padding: .init(top: 10, left: 20, bottom: 0, right: 20))
     }
 }

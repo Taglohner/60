@@ -28,7 +28,6 @@ class SettingsScreen: UIViewController {
         
     }
 
-    
     func setupTableView() {
         tableView = UITableView(frame: UIScreen.main.bounds, style: UITableViewStyle.grouped)
         tableView.delegate = self
@@ -43,9 +42,4 @@ class SettingsScreen: UIViewController {
         tableView.register(SettingsCell.self, forCellReuseIdentifier: settingsCell)
         [tableView].forEach { view.addSubview($0) }
     }
-    
-    
-    
-    
-    
 }

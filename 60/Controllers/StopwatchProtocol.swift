@@ -11,38 +11,14 @@ import Foundation
 import UIKit
 
 protocol Stopwatch {
-    var interval: Double { get set }
-    var milliseconds: Double { get }
+    var timer: Timer { get set }
     var seconds: Double { get }
-    var minutes: Double { get }
-    var hours: Double { get }
-    var currentAngle: Double { get }
-    var animationDuration: Double { get }
-
+    var minutes: Double { get set }
+    var currentAngle: Double { get set }
 }
 
 extension Stopwatch {
-    var milliseconds: Double {
-        return interval.truncatingRemainder(dividingBy: 1000)
-    }
-    
     var seconds: Double {
-        return (interval / 100).truncatingRemainder(dividingBy: 60)
-    }
-    
-    var minutes: Double {
-        return (interval / 6000).truncatingRemainder(dividingBy: 60)
-    }
-    
-    var hours: Double {
-        return interval / 3600000
-    }
-    
-    var currentAngle: Double {
-        return Double(360 * (interval / 6000)).truncatingRemainder(dividingBy: 360)
-    }
-    
-    var animationDuration: Double {
-        return 60 - Double(60 * (interval / 6000)).truncatingRemainder(dividingBy: 60)
+        return Double((currentAngle / 600) * 100).truncatingRemainder(dividingBy: 60)
     }
 }

@@ -44,10 +44,41 @@ extension UIView {
         heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
     }
     
-    
     func setRounded() {
         let radius = self.frame.size.width / 2
         self.layer.cornerRadius = radius
         self.layer.masksToBounds = true
     }
+    
+    func size(_ size: CGSize = .zero) {
+        if size.width != 0 {
+            widthAnchor.constraint(equalToConstant: size.width).isActive = true
+        }
+        
+        if size.height != 0 {
+            heightAnchor.constraint(equalToConstant: size.height).isActive = true
+        }
+    }
+    
+    func center(to view: UIView, withSize: CGSize = .zero) {
+        centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        if withSize.width != 0 {
+            widthAnchor.constraint(equalToConstant: withSize.width).isActive = true
+        }
+        
+        if withSize.height != 0 {
+            heightAnchor.constraint(equalToConstant: withSize.height).isActive = true
+        }
+    }
+    
+    var screenHeight: CGFloat {
+        return UIScreen.main.bounds.height
+    }
+    
+    var screenWidht: CGFloat {
+        return UIScreen.main.bounds.width
+    }
+
 }
