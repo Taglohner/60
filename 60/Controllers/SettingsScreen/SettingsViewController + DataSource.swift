@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension SettingsScreen: UITableViewDataSource {
+extension SettingsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: settingsCell) as! SettingsCell
@@ -19,6 +19,4 @@ extension SettingsScreen: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
-    
-    
 }

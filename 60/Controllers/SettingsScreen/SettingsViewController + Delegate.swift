@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension SettingsScreen: UITableViewDelegate {
+extension SettingsViewController: UITableViewDelegate {
     
     
 }

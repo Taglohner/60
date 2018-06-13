@@ -43,7 +43,6 @@ class StopwatchView: UIView {
     let progressView = KDCircularProgress()
     let startPauseButton = StartResumeButton()
     let resetButton = StartResumeButton()
-
     
     fileprivate func setupViews() {
         progressView.startAngle = 0
@@ -74,6 +73,6 @@ class StopwatchView: UIView {
         startPauseButton.size(.init(width: 80, height: 80))
         resetButton.size(.init(width: 80, height: 80))
         
-        buttonsStackView.anchor(top: progressView.bottomAnchor, leading: progressView.leadingAnchor, bottom: nil, trailing: progressView.trailingAnchor, padding: .init(top: 10, left: 20, bottom: 0, right: 20))
+        buttonsStackView.anchor(top: nil, leading: progressView.leadingAnchor, bottom: bottomAnchor, trailing: progressView.trailingAnchor, padding: .init(top: 0, left: 34, bottom: 34, right: 34))
     }
 }

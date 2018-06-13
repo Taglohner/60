@@ -16,6 +16,7 @@ class SettingsCell: UITableViewCell {
         self.layer.backgroundColor = UIColor.clear.cgColor
         self.contentView.backgroundColor = UIColor.clear
         self.backgroundColor = .clear
+        self.selectionStyle = .none
     }
     
     required init?(coder aDecoder: NSCoder) {
