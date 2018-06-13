@@ -45,6 +45,7 @@ class StopwatchViewController: UIViewController {
         stopWatchView = StopwatchView(frame: view.frame)
         view.addSubview(stopWatchView)
         stopWatchView.startPauseButton.addTarget(self, action: .startStopButtonPressed, for: .touchUpInside)
+        
     }
     
     func setupNavigationBar() {

@@ -20,46 +20,16 @@ class StopwatchView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    let secondsLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .white
-        label.text = "0"
-        label.font = .boldSystemFont(ofSize: 120)
-        label.textAlignment = .center
-        return label
-    }()
-    
-    let minutesLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .white
-        label.font = .boldSystemFont(ofSize: 80)
-        label.text = "0"
-        label.textAlignment = .center
-        return label
-    }()
-    
-    let progressView = KDCircularProgress()
+    let secondsLabel = UILabel(style: Stylesheet.StopwatchView.secondsLabel)
+    let minutesLabel = UILabel(style: Stylesheet.StopwatchView.minutesLabel)
+    let progressView = KDCircularProgress(style: Stylesheet.StopwatchView.progressView)
     let startPauseButton = StartResumeButton()
     let resetButton = StartResumeButton()
     
     fileprivate func setupViews() {
-        progressView.startAngle = 0
-        progressView.progressThickness = 0.4
-        progressView.trackThickness = 0.5
-        progressView.clockwise = true
-        progressView.gradientRotateSpeed = 4
-        progressView.roundedCorners = false
-        progressView.glowMode = .forward
-        progressView.glowAmount = 0.9
-        progressView.set(colors: .green)
-        progressView.trackColor = .darkGray
-        
-        let buttonsStackView = UIStackView(arrangedSubviews: [resetButton, startPauseButton])
-        buttonsStackView.distribution = .equalSpacing
-        buttonsStackView.axis = .horizontal
-        buttonsStackView.alignment = .fill
+
+        let buttonsStackView = UIStackView(style: Stylesheet.StopwatchView.buttonsStackView)
+        [resetButton, startPauseButton].forEach { buttonsStackView.addArrangedSubview($0) }
         
         [progressView, buttonsStackView].forEach { addSubview($0) }
         [secondsLabel, minutesLabel].forEach { progressView.addSubview($0)}

@@ -42,7 +42,6 @@ class StartResumeButton: UIButton {
         let color = bool ? .clear : UIColor.white
         let title = bool ? "Pause" : "Resume"
         let titleColor = bool ? .white : UIColor.black
-        
         backgroundColor = color
         setTitleColor(titleColor, for: .normal)
         setTitle(title, for: .normal)
