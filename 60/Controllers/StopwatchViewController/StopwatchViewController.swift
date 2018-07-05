@@ -12,8 +12,8 @@ class StopwatchViewController: UIViewController {
     
     // MARK: Properties
     
-    var stopWatchView = StopwatchView()
-    var timer: Timer = Timer()
+    private var stopWatchView = StopwatchView()
+    private var timer: Timer = Timer()
     var currentAngle: Double = 0
     var minutes: Double = 0
     let notificationCenter = NotificationCenter.default
@@ -30,7 +30,9 @@ class StopwatchViewController: UIViewController {
         notificationCenter.addObserver(self, selector: .saveAppState, name: .willResignActive, object: nil)
         // prevend screen from locking while app is on the foreground
         UIApplication.shared.isIdleTimerDisabled = true
+        // setup views
         setupViews()
+        // setup the navigation bar
         setupNavigationBar()
     }
     
@@ -44,8 +46,7 @@ class StopwatchViewController: UIViewController {
     private func setupViews() {
         stopWatchView = StopwatchView(frame: view.frame)
         view.addSubview(stopWatchView)
-        stopWatchView.startPauseButton.addTarget(self, action: .startStopButtonPressed, for: .touchUpInside)
-        
+        stopWatchView.startPauseButton.addTarget(self, action: .startStopButtonPressed, for: UIControl.Event.touchUpInside)
     }
     
     func setupNavigationBar() {
@@ -70,7 +71,7 @@ class StopwatchViewController: UIViewController {
     
     @objc fileprivate func saveAppState() {
         if stopWatchView.startPauseButton.isActive {
-            stopWatchView.startPauseButton.sendActions(for: .touchUpInside)
+            stopWatchView.startPauseButton.sendActions(for: UIControl.Event.touchUpInside)
         }
     }
     
@@ -130,7 +131,7 @@ fileprivate extension Selector {
 }
 
 fileprivate extension Notification.Name {
-    static let willResignActive = Notification.Name.UIApplicationWillResignActive
+    static let willResignActive = UIApplication.willResignActiveNotification
 }
 
 /*

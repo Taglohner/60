@@ -29,7 +29,7 @@ class SettingsViewController: UIViewController {
     }
 
     func setupTableView() {
-        tableView = UITableView(frame: UIScreen.main.bounds, style: UITableViewStyle.grouped)
+        tableView = UITableView(frame: UIScreen.main.bounds, style: UITableView.Style.grouped)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .black

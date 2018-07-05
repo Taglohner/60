@@ -166,6 +166,7 @@
 				TargetAttributes = {
 					E7E0A04620C72FFD00FEA825 = {
 						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 1000;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 0;
@@ -370,7 +371,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = steven.taglohner.60;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -392,7 +393,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = steven.taglohner.60;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

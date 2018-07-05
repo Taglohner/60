@@ -27,9 +27,9 @@ class StartResumeButton: UIButton {
         layer.cornerRadius = 40
         layer.masksToBounds = false
         backgroundColor = .white
-        setTitle("Start", for: .normal)
-        setTitleColor(.black, for: .normal)
-        addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        setTitle("Start", for: UIControl.State.normal)
+        setTitleColor(.black, for: UIControl.State.normal)
+        addTarget(self, action: #selector(buttonPressed), for: UIControl.Event.touchUpInside)
     }
     
     @objc func buttonPressed() {
@@ -43,8 +43,8 @@ class StartResumeButton: UIButton {
         let title = bool ? "Pause" : "Resume"
         let titleColor = bool ? .white : UIColor.black
         backgroundColor = color
-        setTitleColor(titleColor, for: .normal)
-        setTitle(title, for: .normal)
+        setTitleColor(titleColor, for: UIControl.State.normal)
+        setTitle(title, for: UIControl.State.normal)
     }
 }
 

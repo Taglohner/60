@@ -10,12 +10,47 @@ import UIKit
 
 class ResetButton: UIButton {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    var isActive = false
+    var titleInitial = "Start"
+    var titleActive = "Pause"
+    var titleInactive = "Resume"
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupButton()
     }
-    */
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupButton() {
+        layer.borderWidth = 2.0
+        layer.borderColor = UIColor.white.cgColor
+        layer.cornerRadius = 40
+        layer.masksToBounds = false
+        backgroundColor = .white
+        setTitle(titleInitial, for: UIControl.State.normal)
+        setTitleColor(.black, for: UIControl.State.normal)
+        addTarget(self, action: #selector(buttonPressed), for: UIControl.Event.touchUpInside)
+    }
+    
+    @objc func buttonPressed() {
+        activateButton(bool: !isActive)
+    }
+    
+    func activateButton(bool: Bool) {
+        isActive = bool
+        
+        let color = bool ? .clear : UIColor.white
+        let title = bool ? titleActive : titleInactive
+        let titleColor = bool ? .white : UIColor.black
+        backgroundColor = color
+        setTitleColor(titleColor, for: UIControl.State.normal)
+        setTitle(title, for: UIControl.State.normal)
+    }
+}
 
+fileprivate extension Selector {
+    static let buttonPressed = #selector(StartResumeButton.buttonPressed)
 }
